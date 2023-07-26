@@ -62,6 +62,13 @@ async def main():
 
     if st.button("Check URLs"):
         st.write("Checking URLs...")
+        files_to_remove = ['summary.pkl', 'detail.pkl']
+        for file_name in files_to_remove:
+            if os.path.exists(file_name):
+                os.remove(file_name)
+                print(f"File '{file_name}' has been removed.")
+            else:
+                print(f"File '{file_name}' does not exist.")
         urls = [line.strip() for line in lines if contains_url(line)]
 
         if urls:
@@ -95,13 +102,13 @@ async def main():
 
 
 if __name__ == "__main__":
-    files_to_remove = ['summary.pkl', 'detail.pkl']
-    for file_name in files_to_remove:
-        if os.path.exists(file_name):
-            os.remove(file_name)
-            print(f"File '{file_name}' has been removed.")
-        else:
-            print(f"File '{file_name}' does not exist.")
+    # files_to_remove = ['summary.pkl', 'detail.pkl']
+    # for file_name in files_to_remove:
+    #     if os.path.exists(file_name):
+    #         os.remove(file_name)
+    #         print(f"File '{file_name}' has been removed.")
+    #     else:
+    #         print(f"File '{file_name}' does not exist.")
     asyncio.run(main())
     try:
         dfSummary=pd.read_pickle('summary.pkl')
