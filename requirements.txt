@@ -2,3 +2,5 @@ streamlit
 httpx
 asyncio
 aiohttp
+streamlit-aggrid
+pandas
