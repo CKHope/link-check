@@ -53,7 +53,7 @@ async def main():
 
     # Input parameters
     url_input = st.text_area("Enter URLs (one per line)")
-    concurrency = st.number_input("Concurrency", value=50, step=10, min_value=1)
+    concurrency = st.number_input("Concurrency", value=30, step=10, min_value=1)
 
     lines = url_input.strip().split('\n')
 
